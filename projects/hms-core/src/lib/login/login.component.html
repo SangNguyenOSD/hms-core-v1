@@ -1,14 +1,26 @@
-<div>
-  <div>LOGIN</div>
+<div class="hms-login">
+  <div class="hms-login__title">{{loginLanguages.title}}</div>
   <hr>
-  <div>
-    <div>
-      <span>Email</span>
-      <input type="email">
+  <div class="hms-login__inputs">
+    <div class="form-group">
+      <label for="emailUser">{{loginLanguages.emailLabel}}:</label>
+      <input type="email" class="form-control" id="emailUser" [name]="loginUser.email" [(ngModel)]="loginUser.email"
+             #emailInput="ngModel" pattern="^\S*[@]\S*[.]\S*$" email required>
     </div>
-    <div>
-        <span>Password</span>
-        <input type="password">
-      </div>
+    <div class="form-group">
+      <label for="passwordUser">{{loginLanguages.passwordLabel}}:</label>
+      <input type="password" class="form-control" id="passwordUser" [name]="loginUser.password" [(ngModel)]="loginUser.password">
+    </div>
+  </div>
+  <hr>
+  <div class="hms-login__buttons">
+    <button type="button" class="btn btn-primary hms-login__ok-button" 
+    (click)="onClickSignIn()" [disabled]="!emailInput.valid">{{loginLanguages.signInText}}</button>
+  </div>
+  <div class="hms-login__register-intro">
+    {{loginLanguages.signUpIntroText}} <button class="btn btn-link" (click)="onClickSignUp()">{{loginLanguages.signUpText}}</button>
+  </div>
+  <div class="hms-login__invalid-message alert alert-danger" *ngIf="!emailInput.valid  && emailInput.touched">
+    {{loginLanguages.invalidEmailMessageText}}
   </div>
 </div>
