@@ -2,13 +2,17 @@
   display: flex;
   align-items: center;
   padding: 10px;
+  height: 60px;
   -webkit-box-shadow: inset 0px 5px 3px 0px rgba(22, 80, 168, 0.75);
   -moz-box-shadow: inset 0px 5px 3px 0px rgba(22, 80, 168, 0.75);
   box-shadow: inset 0px 5px 3px 0px rgba(22, 80, 168, 0.75);
 
-  &__copyright-text {}
-
   &__logo {
     margin-left: auto;
+  }
+
+  &__logo-img {
+    width: 40px;
+    height: 40px;
   }
 }

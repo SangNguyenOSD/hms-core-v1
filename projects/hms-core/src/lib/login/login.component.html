@@ -9,18 +9,20 @@
     </div>
     <div class="form-group">
       <label for="passwordUser">{{loginLanguages.passwordLabel}}:</label>
-      <input type="password" class="form-control" id="passwordUser" [name]="loginUser.password" [(ngModel)]="loginUser.password">
+      <input type="password" class="form-control" id="passwordUser" [name]="loginUser.password"
+             [(ngModel)]="loginUser.password">
     </div>
   </div>
   <hr>
   <div class="hms-login__buttons">
-    <button type="button" class="btn btn-primary hms-login__ok-button" 
-    (click)="onClickSignIn()" [disabled]="!emailInput.valid">{{loginLanguages.signInText}}</button>
+    <button type="button" class="btn btn-primary hms-login__ok-button" (click)="onClickSignIn()"
+            [disabled]="!emailInput.valid">{{loginLanguages.signInText}}</button>
   </div>
   <div class="hms-login__register-intro">
-    {{loginLanguages.signUpIntroText}} <button class="btn btn-link" (click)="onClickSignUp()">{{loginLanguages.signUpText}}</button>
+    {{loginLanguages.signUpIntroText}} <button class="btn btn-link"
+            (click)="onClickSignUp()">{{loginLanguages.signUpText}}</button>
   </div>
-  <div class="hms-login__invalid-message alert alert-danger" *ngIf="!emailInput.valid  && emailInput.touched">
-    {{loginLanguages.invalidEmailMessageText}}
+  <div class="hms-login__invalid-message alert alert-danger" *ngIf="(loginSignal && !loginSignal.isValid)">
+    {{loginSignal.invalidMessage}}
   </div>
 </div>

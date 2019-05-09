@@ -2,4 +2,5 @@
 <h3>Shane - Sang Nguyen</h3>
 <h3>FullStack Developer</h3>
 
-<hms-login></hms-login>
+<hms-login [loginSignal]="loginSignal"></hms-login>
+<button (click)="loginSignal.isValid = !loginSignal.isValid">Click</button>

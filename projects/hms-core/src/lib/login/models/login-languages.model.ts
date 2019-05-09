@@ -5,5 +5,4 @@ export class LoginLanguages {
     signInText?: string;
     signUpText?: string;
     signUpIntroText?: string;
-    invalidEmailMessageText?: string;
 }
