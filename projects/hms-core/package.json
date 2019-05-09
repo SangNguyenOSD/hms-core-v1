@@ -1,6 +1,13 @@
 {
   "name": "hms-core",
-  "version": "0.0.1",
+  "version": "0.0.3",
+  "description": "The library is common library of Hotel Management System",
+  "keywords": ["Angular", "Library"],
+  "license": "N/A",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SangNguyenOSD/hms-core-v1"
+  },
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0",

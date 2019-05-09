@@ -7,7 +7,13 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build_lib": "ng build hms-core",
+    "copy-license": "copy .\\LICENSE .\\dist\\hms-core",
+    "copy-readme": "copy .\\README.md .\\dist\\hms-core",
+    "copy-files": "npm run copy-license && npm run copy-readme",
+    "npm_pack": "cd dist/hms-core && npm pack",
+    "package": "npm run build_lib && npm run copy-readme && npm run npm_pack"
   },
   "private": true,
   "dependencies": {
