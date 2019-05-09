@@ -75,44 +75,45 @@ export class AppModule { }
 ### Login
 
 ```html
-<hms-login [loginLanguages]="loginLanguage" (signIn)="onSignIn($event)" (signOut)="onSignOut()"></hms-login>
+<hms-login [loginLanguages]="loginLanguage" [loginSignal]="loginSignal" (signIn)="onSignIn($event)" (signOut)="onSignOut()"></hms-login>
 ```
-| Decorator | Name | Type | Description |
-|:--------:|:-------:|:--------:|:-----------:|
-| @Input | loginLanguages | LoginLanguages | Support multiple languages (i18n) for texts, labels in Login Component |
-| @Output | signIn | EventEmitter\<LoginUser\> | Emit LoginUser instance to external component |
-| @Output | signUp | EventEmitter\<boolean\> | Emit signal boolean to external component |
+| Decorator | Name | Type | Require | Description |
+|:--------:|:-------:|:--------:|:--------:|:-----------:|
+| @Input | loginLanguages | LoginLanguages | Optional | Support multiple languages (i18n) for texts, labels in Login Component |
+| @Input | loginSignal | LoginSignal | Required | Get signal from external about login valid or invalid |
+| @Output | signIn | EventEmitter\<LoginUser\> | Optional | Emit LoginUser instance to external component |
+| @Output | signUp | EventEmitter\<boolean\> | Optional | Emit signal boolean to external component |
 
 ### Header
 
 ```html
 <hms-header [headerData]="headerData" (searchTerm)="onSearch($event)" (updateProfile)="onUpdateProfile()" (changePassword)="onChangePassword()" (signOut)="onSignOut()"></hms-header>
 ```
-| Decorator | Name | Type | Description |
-|:--------:|:-------:|:--------:|:-----------:|
-| @Input | headerData | Header | Package other models need for header. As Logo, Title, Routes Menu, Multiple Languages for User Menu and so on |
-| @Output | searchTerm | EventEmitter\<string\> | Emit a string from search input |
-| @Output | updateProfile | EventEmitter\<boolean\> | Emit signal about user would like to navigate to "Profile" page to update info |
-| @Output | changePassword | EventEmitter\<boolean\> | Emit signal about user would like to navigate to "Change Password" page to update info |
-| @Output | signOut | EventEmitter\<boolean\> | Emit signal about user would like to sign out |
+| Decorator | Name | Type | Require | Description |
+|:--------:|:-------:|:--------:|:--------:|:-----------:|
+| @Input | headerData | Header | Required | Package other models need for header. As Logo, Title, Routes Menu, Multiple Languages for User Menu and so on |
+| @Output | searchTerm | EventEmitter\<string\> | Optional | Emit a string from search input |
+| @Output | updateProfile | EventEmitter\<boolean\> | Optional | Emit signal about user would like to navigate to "Profile" page to update info |
+| @Output | changePassword | EventEmitter\<boolean\> | Optional | Emit signal about user would like to navigate to "Change Password" page to update info |
+| @Output | signOut | EventEmitter\<boolean\> | Optional | Emit signal about user would like to sign out |
 
 ### Footer
 
 ```html
 <hms-footer [footerData]="footerData"></hms-footer>
 ```
-| Decorator | Name | Type | Description |
-|:--------:|:-------:|:--------:|:-----------:|
-| @Input | footerData | Footer | Package other models for CopyRight text and Logo |
+| Decorator | Name | Type | Require | Description |
+|:--------:|:-------:|:--------:|:--------:|:-----------:|
+| @Input | footerData | Footer | Required | Package other models for CopyRight text and Logo |
 
 ### SideBar
 
 ```html
 <hms-sidebar [sideBarData]="sideBarData"></hms-sidebar>
 ```
-| Decorator | Name | Type | Description |
-|:--------:|:-------:|:--------:|:-----------:|
-| @Input | sideBarData | SideBar | Package other models for Title, Routes Menu |
+| Decorator | Name | Type | Require | Description |
+|:--------:|:-------:|:--------:|:--------:|:-----------:|
+| @Input | sideBarData | SideBar | Required | Package other models for Title, Routes Menu |
 
 ## Models
 
@@ -135,7 +136,15 @@ export class AppModule { }
 ```
 
 ```shell
-//login-languages.model.ts
+//login-signal.model.ts
+
+---LoginSignal CLASS
+-------isValid: string;
+-------invalidMessage: string;
+```
+
+```shell
+//login-user.model.ts
 
 ---LoginUser CLASS
 -------email: string;

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { LoginLanguages } from './models/login-languages.model';
 import { LoginUser } from './models/login-user.model';
+import { LoginSignal } from './models/login-signal.model';
 
 @Component({
     selector: 'hms-login',
@@ -15,8 +16,8 @@ export class LoginComponent implements OnInit {
         signUpIntroText: 'Don\'t have an account?',
         signUpText: 'Sign Up',
         signInText: 'Sign In',
-        invalidEmailMessageText: 'Your email invalid pattern. It should like "example@domain.com"'
     };
+    @Input() public loginSignal: LoginSignal;
 
     @Output() signIn: EventEmitter<LoginUser> = new EventEmitter<LoginUser>();
     @Output() signUp: EventEmitter<boolean> = new EventEmitter<boolean>();
