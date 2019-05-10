@@ -65,14 +65,15 @@ import { HmsCoreModule } from 'hms-core'; // <-- Declare importting module from 
         ...
     ],
     providers: [],
-    bootstrap: [AppComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA] // <-- Put CUSTOM_ELEMENTS_SCHEMA to schemas
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
 ```
 ## About HMS Core Components
 
 ### Login
+
+The Login component is provided to any users in system could use their Email, Password to login into applications.
 
 ```html
 <hms-login [loginLanguages]="loginLanguage" [loginSignal]="loginSignal" (signIn)="onSignIn($event)" (signOut)="onSignOut()"></hms-login>
@@ -85,6 +86,8 @@ export class AppModule { }
 | @Output | signUp | EventEmitter\<boolean\> | Optional | Emit signal boolean to external component |
 
 ### Header
+
+The Header component is provided to show Routes Menu, Logo, User Avatar and Actions.
 
 ```html
 <hms-header [headerData]="headerData" (searchTerm)="onSearch($event)" (updateProfile)="onUpdateProfile()" (changePassword)="onChangePassword()" (signOut)="onSignOut()"></hms-header>
@@ -99,6 +102,8 @@ export class AppModule { }
 
 ### Footer
 
+The Footer component is provided to show Logo, CopyRight text.
+
 ```html
 <hms-footer [footerData]="footerData"></hms-footer>
 ```
@@ -107,6 +112,8 @@ export class AppModule { }
 | @Input | footerData | Footer | Required | Package other models for CopyRight text and Logo |
 
 ### SideBar
+
+The Footer component is provided to show Routes Menu.
 
 ```html
 <hms-sidebar [sideBarData]="sideBarData"></hms-sidebar>
@@ -232,10 +239,6 @@ export class AppModule { }
 -------menu: string;
 ```
 </details>
-
-## Running unit tests
-
-Run `ng test hms-core` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Author
 * **Shane - Sang Nguyen** - *Initial work* - [Github](https://github.com/SangNguyenOSD)
